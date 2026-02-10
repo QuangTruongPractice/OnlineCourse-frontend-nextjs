@@ -9,8 +9,8 @@ export function HeroSection() {
     const [isVisible, setIsVisible] = useState(false)
     const router = useRouter()
 
-    const goToLogin = () => {
-        router.push("user/login/")
+    const handleGetStarted = () => {
+        router.push("/course/search")
     }
 
     useEffect(() => {
@@ -50,7 +50,7 @@ export function HeroSection() {
                             className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}`}
                         >
                             <Button
-                                onClick={goToLogin}
+                                onClick={handleGetStarted}
                                 size="lg"
                                 className="text-base group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
                             >

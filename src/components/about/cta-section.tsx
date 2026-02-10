@@ -7,8 +7,8 @@ export function CTASection() {
 
     const router = useRouter()
 
-    const goToLogin = () => {
-        router.push('/user/login/')
+    const handleGetStarted = () => {
+        router.push('/course/search')
     }
     return (
         <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
@@ -26,7 +26,7 @@ export function CTASection() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button onClick={goToLogin} size="lg" className="text-base px-8">
+                        <Button onClick={handleGetStarted} size="lg" className="text-base px-8">
                             Bắt đầu ngay
                             <ArrowRight className="ml-2 h-5 w-5" />
                         </Button>

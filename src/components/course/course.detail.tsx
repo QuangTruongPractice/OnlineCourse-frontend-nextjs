@@ -6,7 +6,7 @@ import { CourseInfo } from "../course-info"
 import { LessonList } from "../lesson-list"
 import { VideoPlayer } from "../video-player"
 import { Button } from "../ui/button"
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 const CourseDetailPublic = () => {
@@ -17,6 +17,14 @@ const CourseDetailPublic = () => {
     const [loading, setLoading] = useState(true)
 
     const [url, setUrl] = useState<string | null>(null)
+
+    const router = useRouter()
+
+    useEffect(() => {
+        if (course?.is_enrolled) {
+            router.replace(`/course/${id}/learn`)
+        }
+    }, [course, id, router])
 
     useEffect(() => {
         async function fetchCourse() {

@@ -387,7 +387,7 @@ export default function CourseLearnPage() {
                                     </div>
                                     <div>
                                         <div className="text-2xl font-black text-emerald-900">
-                                            {Math.floor(courseData.duration / 3600)}<span className="text-xs uppercase ml-0.5">h</span> {Math.floor((courseData.duration % 3600) / 60)}<span className="text-xs uppercase ml-0.5">m</span>
+                                            {Math.floor(courseData.duration / 60)}<span className="text-xs uppercase ml-0.5">h</span> {courseData.duration % 60}<span className="text-xs uppercase ml-0.5">m</span>
                                         </div>
                                         <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Thời lượng</div>
                                     </div>
@@ -517,7 +517,7 @@ export default function CourseLearnPage() {
                                                                 <div className="flex items-center gap-2 mt-1">
                                                                     <div className="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                                                                         <Clock className="w-3 h-3 text-slate-300" />
-                                                                        <span>{Math.floor(lesson.duration / 60)}:{(lesson.duration % 60).toString().padStart(2, '0')}</span>
+                                                                        <span>{Math.floor(lesson.duration / 60) > 0 ? `${Math.floor(lesson.duration / 60)}h ` : ''}{lesson.duration % 60}m</span>
                                                                     </div>
                                                                     {lessonProgress && (
                                                                         <Badge className={`py-0 px-1.5 text-[9px] font-black uppercase tracking-tighter border-none ${lessonProgress.status === 'COMPLETED' ? 'bg-emerald-50 text-emerald-600' :
